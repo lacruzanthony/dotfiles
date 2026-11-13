@@ -1,0 +1,3 @@
+# Copia a ~/.gitconfig.work. No se versiona.
+[user]
+	email = __EMAIL__

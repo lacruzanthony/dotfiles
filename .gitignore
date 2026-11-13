@@ -1,0 +1,11 @@
+.DS_Store
+*.bak
+*.bak.*
+
+# Secretos y config por máquina: nunca al repo
+*.local
+.env
+.env.*
+*.pem
+*.key
+**/clerk/

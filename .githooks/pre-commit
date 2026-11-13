@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Antes de cada commit, trae al repo la config actual de las apps que se copian (T3 Code).
+set -euo pipefail
+ROOT="$(git rev-parse --show-toplevel)"
+DOTFILES="$ROOT" bash "$ROOT/scripts/export-apps.sh" >/dev/null
+git add "$ROOT/apps"

@@ -1,0 +1,21 @@
+// Zed — https://zed.dev/docs/configuring-zed
+// Punto de partida: sustitúyelo por tus settings reales cuando instales Zed.
+{
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_size": 14,
+  "ui_font_size": 15,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark"
+  },
+  "format_on_save": "on",
+  "tab_size": 2,
+  "terminal": {
+    "font_family": "JetBrainsMono Nerd Font"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  }
+}

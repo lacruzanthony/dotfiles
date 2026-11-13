@@ -1,0 +1,8 @@
+# Copia a ~/.gitconfig.local (lo hace scripts/07-post-install.sh). No se versiona.
+[user]
+	name = __NAME__
+	email = __EMAIL__
+
+# Repos de trabajo: todo lo que esté bajo ~/Documents/code/ usa la identidad de trabajo.
+[includeIf "gitdir:~/Documents/code/"]
+	path = ~/.gitconfig.work

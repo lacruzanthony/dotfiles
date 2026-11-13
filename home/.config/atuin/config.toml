@@ -1,0 +1,10 @@
+# https://docs.atuin.sh/configuration/config/
+# Sync desactivado por defecto: activa con `atuin register` / `atuin login` si lo quieres.
+auto_sync = false
+update_check = false
+search_mode = "fuzzy"
+filter_mode_shell_up_key_binding = "directory"   # ↑ = historial de la carpeta actual
+style = "compact"
+inline_height = 20
+enter_accept = false                             # Enter pega el comando para editarlo
+secrets_filter = true                            # no guarda comandos con tokens/claves

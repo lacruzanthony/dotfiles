@@ -1,0 +1,2 @@
+# Plugins de Claude Code que instala scripts/07-post-install.sh, uno por línea: <plugin>@<marketplace>
+# Los plugins internos de la organización se sincronizan solos: no van aquí.
