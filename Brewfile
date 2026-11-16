@@ -27,6 +27,9 @@ brew "httpie"              # `http` → curl legible
 # --- Runtimes ---
 brew "nvm"                 # Node
 brew "pyenv"               # Python
+brew "openssl@3"           # deps de compilación de Python (pyenv): sin openssl@3 instalado,
+brew "readline"            #   pyenv prueba openssl@1.1 (ya no existe en brew) y suelta un error
+brew "xz"                  #   inofensivo antes de caer en otra versión
 # sdkman (Java) no está en brew: lo instala scripts/05-runtimes.sh
 
 # --- Apps ---
