@@ -32,6 +32,36 @@ link() {
   ok "${dst/#$HOME/~} → ${src/#$HOME/~}"
 }
 
+# brew_bundle <Brewfile>
+# Como `brew bundle`, pero omite los casks cuya app ya existe en /Applications sin
+# haberla instalado brew (adoptarlas exige sudo y falla). Esas apps se actualizan solas.
+cask_app_present() {
+  brew info --cask --json=v2 "$1" 2>/dev/null | python3 -I -c '
+import json, os, sys
+c = json.load(sys.stdin)["casks"][0]
+apps = [a for art in c["artifacts"] for a in art.get("app", []) if isinstance(a, str)]
+sys.exit(0 if apps and all(os.path.exists("/Applications/" + a) for a in apps) else 1)'
+}
+
+brew_bundle() {
+  local brewfile="$1" filtered line cask
+  filtered="$(mktemp)"
+  while IFS= read -r line || [ -n "$line" ]; do
+    if [[ $line =~ ^cask[[:space:]]+\"([^\"]+)\" ]]; then
+      cask="${BASH_REMATCH[1]}"
+      if ! brew list --cask "$cask" >/dev/null 2>&1 && cask_app_present "$cask"; then
+        warn "$cask: ya está en /Applications (fuera de brew) → se omite" >&2
+        continue
+      fi
+    fi
+    printf '%s\n' "$line"
+  done < "$brewfile" > "$filtered"
+  local rc=0
+  brew bundle --file="$filtered" || rc=$?
+  rm -f "$filtered"
+  return $rc
+}
+
 # copy_if_changed <origen> <destino>  (para apps que reescriben su config y rompen symlinks)
 copy_if_changed() {
   local src="$1" dst="$2"

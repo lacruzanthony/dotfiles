@@ -24,7 +24,7 @@ if [ "$want" != 1 ]; then
 fi
 
 info "brew bundle (Android)…"
-HOMEBREW_CASK_OPTS="--adopt" brew bundle --file="$DOTFILES/Brewfile.android"
+brew_bundle "$DOTFILES/Brewfile.android"
 ok "Android Studio instalado"
 info "Ábrelo una vez para que el asistente descargue el SDK en ~/Library/Android/sdk"
 info "(.zshrc ya exporta ANDROID_HOME y añade adb/emulator al PATH cuando existe)"
