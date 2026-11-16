@@ -17,6 +17,7 @@
 
   // --- Apariencia ---
   "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_features": { "calt": false, "liga": false }, // sin ligaduras: se ve lo que hay escrito
   "buffer_font_size": 14,
   "ui_font_size": 15,
   "theme": {
@@ -28,6 +29,10 @@
     "mode": "dark",
     "light": "Zed (Default)",
     "dark": "Zed (Default)"
+  },
+  // Panel de archivos a la derecha: el código no se desplaza al abrirlo/cerrarlo (como Kent).
+  "project_panel": {
+    "dock": "right"
   },
   "tabs": {
     "file_icons": true,

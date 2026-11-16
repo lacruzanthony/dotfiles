@@ -1,2 +1,27 @@
 // Zed keymap — https://zed.dev/docs/key-bindings
-[]
+// Gestionado desde ~/.dotfiles/home/.config/zed/keymap.json
+[
+  {
+    // Enter nunca acepta el autocompletado: siempre salta de línea. Tab acepta (como Kent).
+    "context": "Editor && showing_completions",
+    "bindings": {
+      "enter": "editor::Newline"
+    }
+  },
+  {
+    // El panel de archivos está a la derecha: cmd-b lo muestra/oculta.
+    "context": "Workspace",
+    "bindings": {
+      "cmd-b": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    // Panel de archivos (con el foco en él). Se suman a los de Vim: %, d, shift-r, shift-d…
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "a": "project_panel::NewFile",
+      "shift-a": "project_panel::NewDirectory",
+      "r": "project_panel::Rename"
+    }
+  }
+]
