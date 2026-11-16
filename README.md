@@ -56,6 +56,8 @@ docs/              guía de herramientas
 
 **CLI**: eza, bat, fd, ripgrep, jq, gh, git-delta, lazygit, btop, tldr (tlrc), httpie.
 
+**Runtimes y contenedores**: nvm, pyenv + uv, sdkman, Colima + docker CLI (compose, buildx).
+
 **Apps**: Rectangle, cmux, T3 Code, Zed, Claude Code, Codex. Opcional: Android Studio.
 
 👉 Qué hace cada una, atajos y aliases: [docs/herramientas.md](docs/herramientas.md).
@@ -75,6 +77,10 @@ gh auth refresh -h github.com -s admin:public_key
 gh ssh-key add ~/.ssh/id_ed25519.pub --title "<maquina>"
 ssh -T git@github.com
 ```
+
+## Capa privada
+
+Si existe `~/.dotfiles-work` (repo privado aparte), `./install.sh` lo aplica al final. Lo que enlaza en `~/.config/zsh/conf.d/*.zsh` lo carga `.zshrc`. Así este repo no lleva nada interno del trabajo.
 
 ## Pasos manuales
 

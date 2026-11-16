@@ -22,4 +22,10 @@ for script in "$DOTFILES"/scripts/[0-9][0-9]-*.sh; do
   bash "$script"
 done
 
+# Capa privada opcional (no está en este repo): se aplica si existe en la máquina.
+WORK="$HOME/.dotfiles-work"
+if [ ${#steps[@]} -eq 0 ] && [ -x "$WORK/install.sh" ]; then
+  bash "$WORK/install.sh"
+fi
+
 printf '\n\033[1;32m✔ Listo.\033[0m Abre una terminal nueva. Pasos manuales: ver README.\n'

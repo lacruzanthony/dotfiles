@@ -29,6 +29,9 @@ command -v starship >/dev/null && eval "$(starship init zsh)"
 
 [ -f "$HOME/.config/zsh/aliases.zsh" ] && source "$HOME/.config/zsh/aliases.zsh"
 
+# Capas extra enlazadas por otros repos (p. ej. ~/.dotfiles-work)
+for f in "$HOME"/.config/zsh/conf.d/*.zsh(N); do source "$f"; done
+
 # Config solo de esta máquina (no versionada)
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
 

@@ -38,12 +38,41 @@ fi
 # --- Plugins de Claude Code ---
 info "Claude Code plugins"
 if command -v claude >/dev/null 2>&1; then
-  grep -vE '^\s*(#|$)' "$DOTFILES/ai/claude/plugins.txt" | while read -r plugin; do
+  { grep -vE '^\s*(#|$)' "$DOTFILES/ai/claude/plugins.txt" || true; } | while read -r plugin; do
     claude plugin install "$plugin" >/dev/null 2>&1 && ok "$plugin" || warn "no se pudo instalar $plugin"
   done
 else
   warn "claude no está en el PATH: salto plugins"
 fi
+
+# --- npm: redes corporativas lentas (menos descargas en paralelo, más paciencia) ---
+# Va a ~/.npmrc, que no se versiona porque también guarda tokens.
+info "npm"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$BREW_PREFIX/opt/nvm/nvm.sh" ] && { set +u; source "$BREW_PREFIX/opt/nvm/nvm.sh"; set -u; }
+if command -v npm >/dev/null 2>&1; then
+  npm config set maxsockets 4
+  npm config set fetch-timeout 600000
+  npm config set fetch-retries 5
+  ok "maxsockets=4, fetch-timeout=10min, fetch-retries=5"
+else
+  warn "npm no encontrado: ejecuta antes el paso 05"
+fi
+
+# --- Docker: plugins de brew (compose, buildx) ---
+# ~/.docker/config.json no se enlaza: docker/gcloud escriben ahí credenciales.
+info "docker"
+python3 -I - "$HOME/.docker/config.json" "$BREW_PREFIX/lib/docker/cli-plugins" <<'PY'
+import json, os, sys
+path, plugins = sys.argv[1], sys.argv[2]
+os.makedirs(os.path.dirname(path), exist_ok=True)
+cfg = json.load(open(path)) if os.path.exists(path) else {}
+dirs = cfg.setdefault("cliPluginsExtraDirs", [])
+if plugins not in dirs:
+    dirs.append(plugins)
+    json.dump(cfg, open(path, "w"), indent=2)
+PY
+ok "cliPluginsExtraDirs → docker compose / buildx"
 
 # --- Varios ---
 command -v bat >/dev/null 2>&1 && bat cache --build >/dev/null && ok "bat cache"

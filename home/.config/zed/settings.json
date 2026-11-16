@@ -37,6 +37,14 @@
     "font_family": "JetBrainsMono Nerd Font"
   },
 
+  // --- Extensiones (Zed las instala solo al arrancar) ---
+  "auto_install_extensions": {
+    "kotlin": true,     // repos Android (para trabajo serio, Android Studio)
+    "dockerfile": true,
+    "make": true,       // Makefiles de los repos
+    "toml": true        // pyproject.toml, config de codex/starship
+  },
+
   // --- Front (React + TS + Vite + ESLint flat config + Prettier) ---
   // Prettier: Zed usa el de node_modules y el .prettierrc de cada repo (formatter "auto").
   // ESLint: aplica sus fixes al guardar; después formatea Prettier.

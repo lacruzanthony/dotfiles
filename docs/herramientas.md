@@ -85,6 +85,20 @@ Aliases extra: `dots` (va a `~/.dotfiles`), `reload` (recarga zsh), `brewup` (ac
 | Python | **pyenv** | `pyenv install 3.13` · `pyenv local 3.12` (crea `.python-version`) · `pyenv global` |
 | Java/Kotlin | **sdkman** | `sdk list java` · `sdk install java 21-tem` · `sdk use java …` · `sdk env init` (crea `.sdkmanrc`) |
 
+Proyectos con `uv.lock` usan **uv** en vez de pip/venv: `uv sync` (instala deps y crea `.venv`), `uv run pytest`, `uv add paquete`.
+
+## Contenedores
+
+**Colima** da el motor de Docker sin Docker Desktop (que es de pago en empresas grandes). Se usan los comandos `docker` y `docker compose` de siempre.
+
+```sh
+colima start                    # arranca la VM (una vez por reinicio)
+colima start --cpu 4 --memory 8 # con más recursos, si los tests van justos
+docker ps / docker compose up   # como siempre
+colima stop                     # libera memoria cuando no lo uses
+brew services start colima      # opcional: que arranque solo al iniciar sesión
+```
+
 ## Apps
 
 | App | Para qué | Config en el repo |

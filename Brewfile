@@ -30,7 +30,14 @@ brew "pyenv"               # Python
 brew "openssl@3"           # deps de compilación de Python (pyenv): sin openssl@3 instalado,
 brew "readline"            #   pyenv prueba openssl@1.1 (ya no existe en brew) y suelta un error
 brew "xz"                  #   inofensivo antes de caer en otra versión
+brew "uv"                  # Python: proyectos con uv.lock (deps, venvs, scripts)
 # sdkman (Java) no está en brew: lo instala scripts/05-runtimes.sh
+
+# --- Contenedores (Docker sin Docker Desktop: sin licencia de pago) ---
+brew "colima"              # VM ligera que da el motor de Docker: `colima start`
+brew "docker"              # CLI de docker
+brew "docker-compose"      # plugin `docker compose`
+brew "docker-buildx"       # plugin `docker buildx`
 
 # --- Apps ---
 cask "rectangle"
