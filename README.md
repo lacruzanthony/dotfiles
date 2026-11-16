@@ -60,9 +60,22 @@ templates/         plantillas de identidad git (no se versiona la real)
 
 `.gitconfig` no lleva nombre ni email: incluye `~/.gitconfig.local` (fuera del repo), que define el email personal y usa `~/.gitconfig.work` para todo lo que esté en `~/Documents/code/`. El paso 07 los crea preguntando.
 
+## SSH
+
+`home/.ssh/config` va a GitHub por `ssh.github.com:443` (el puerto 22 está bloqueado en la red corporativa) y guarda la passphrase en el llavero de macOS. Las claves no se versionan: una por máquina.
+
+```sh
+ssh-keygen -t ed25519 -C "lacruzanthony@<maquina>" -f ~/.ssh/id_ed25519
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+gh auth refresh -h github.com -s admin:public_key
+gh ssh-key add ~/.ssh/id_ed25519.pub --title "<maquina>"
+ssh -T git@github.com
+```
+
 ## Pasos manuales
 
 - `gh auth login`
+- Clave SSH de la máquina (ver arriba)
 - Rectangle → Settings → Export → `apps/rectangle/RectangleConfig.json`
 - Opcional: `atuin register` / `atuin login` para sincronizar el historial
 - Config solo de una máquina: `~/.zshrc.local` (no se versiona)

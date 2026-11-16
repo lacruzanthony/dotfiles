@@ -9,3 +9,8 @@
 *.pem
 *.key
 **/clerk/
+
+# SSH: solo se versiona home/.ssh/config, nunca claves ni known_hosts
+home/.ssh/*
+!home/.ssh/config
+id_*

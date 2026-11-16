@@ -4,6 +4,8 @@ set -euo pipefail
 source "$(dirname "$0")/lib.sh"
 
 info "home/ → ~/"
+mkdir -p "$HOME/.ssh" && chmod 700 "$HOME/.ssh"
+chmod 600 "$DOTFILES/home/.ssh/config"   # ssh rechaza configs con permisos abiertos
 cd "$DOTFILES/home"
 find . \( -type f -o -type l \) ! -name '.DS_Store' -print0 | while IFS= read -r -d '' f; do
   rel="${f#./}"
