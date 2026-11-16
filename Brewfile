@@ -34,6 +34,7 @@ cask "rectangle"
 cask "cmux"
 cask "t3-code"
 cask "zed"
+cask "android-studio"
 cask "claude-code"
 cask "codex"
 cask "font-jetbrains-mono-nerd-font"   # iconos para starship/eza

@@ -55,7 +55,7 @@ docs/              guía de herramientas
 
 **CLI**: eza, bat, fd, ripgrep, jq, gh, git-delta, lazygit, btop, tldr (tlrc), httpie.
 
-**Apps**: Rectangle, cmux, T3 Code, Zed, Claude Code, Codex.
+**Apps**: Rectangle, cmux, T3 Code, Zed, Android Studio, Claude Code, Codex.
 
 👉 Qué hace cada una, atajos y aliases: [docs/herramientas.md](docs/herramientas.md).
 

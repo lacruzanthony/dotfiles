@@ -11,5 +11,7 @@ fi
 ok "Homebrew $(brew --version | head -1 | awk '{print $2}')"
 
 info "brew bundle…"
-brew bundle --file="$DOTFILES/Brewfile"
+# --adopt: si la app ya está en /Applications (instalada a mano), brew la adopta
+# en vez de fallar con "It seems there is already an App".
+HOMEBREW_CASK_OPTS="--adopt" brew bundle --file="$DOTFILES/Brewfile"
 ok "Brewfile aplicado"

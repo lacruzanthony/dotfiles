@@ -93,6 +93,7 @@ Aliases extra: `dots` (va a `~/.dotfiles`), `reload` (recarga zsh), `brewup` (ac
 | **cmux** | Terminal | `home/.config/cmux/cmux.json` |
 | **T3 Code** | Cliente de agentes de código | `apps/t3code/` (settings y atajos; se exportan solos en cada commit) |
 | **Zed** | Editor | `home/.config/zed/` |
+| **Android Studio** | IDE Android. El SDK (en `~/Library/Android/sdk`) lo gestiona el propio Studio (SDK Manager); `.zshrc` exporta `ANDROID_HOME` y añade al PATH `adb` y `emulator` | — |
 | **Claude Code** / **Codex** | Agentes de IA en terminal | `ai/` — instrucciones comunes en `ai/instructions/AGENTS.md` |
 | **JetBrainsMono Nerd Font** | Fuente con iconos para Starship y eza | — |
 
