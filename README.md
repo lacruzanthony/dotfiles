@@ -45,6 +45,7 @@ ai/
   claude/                  settings.json + plugins.txt
   codex/                   config.toml
 templates/         plantillas de identidad git (no se versiona la real)
+docs/              guía de herramientas
 .githooks/         pre-commit: exporta la config de apps al repo
 ```
 
@@ -55,6 +56,8 @@ templates/         plantillas de identidad git (no se versiona la real)
 **CLI**: eza, bat, fd, ripgrep, jq, gh, git-delta, lazygit, btop, tldr (tlrc), httpie.
 
 **Apps**: Rectangle, cmux, T3 Code, Zed, Claude Code, Codex.
+
+👉 Qué hace cada una, atajos y aliases: [docs/herramientas.md](docs/herramientas.md).
 
 ## Git: identidad personal y de trabajo
 
