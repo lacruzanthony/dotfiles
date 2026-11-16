@@ -13,10 +13,19 @@ find . \( -type f -o -type l \) ! -name '.DS_Store' -print0 | while IFS= read -r
 done
 
 info "ai/ → Claude Code y Codex"
+# Una capa privada (~/.dotfiles-work) puede sustituir estos enlaces por versiones que
+# amplían las públicas: si ya apuntan allí, no se pisan.
+link_base() {
+  case "$(readlink "$2" 2>/dev/null)" in
+    "$HOME/.dotfiles-work/"*) ok "${2/#$HOME/~} (capa privada)" ;;
+    *) link "$1" "$2" ;;
+  esac
+}
+
 # Una sola fuente de instrucciones globales para todos los agentes.
-link "$DOTFILES/ai/instructions/AGENTS.md" "$HOME/.claude/CLAUDE.md"
-link "$DOTFILES/ai/instructions/AGENTS.md" "$HOME/.codex/AGENTS.md"
-link "$DOTFILES/ai/claude/settings.json"   "$HOME/.claude/settings.json"
+link_base "$DOTFILES/ai/instructions/AGENTS.md" "$HOME/.claude/CLAUDE.md"
+link_base "$DOTFILES/ai/instructions/AGENTS.md" "$HOME/.codex/AGENTS.md"
+link_base "$DOTFILES/ai/claude/settings.json"   "$HOME/.claude/settings.json"
 link "$DOTFILES/ai/codex/config.toml"      "$HOME/.codex/config.toml"
 
 # Skills propias: cada carpeta de ai/skills se enlaza en ambos agentes.
