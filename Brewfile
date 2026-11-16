@@ -34,7 +34,7 @@ cask "rectangle"
 cask "cmux"
 cask "t3-code"
 cask "zed"
-cask "android-studio"
+# Android Studio es opcional: ver Brewfile.android y scripts/08-android.sh
 cask "claude-code"
 cask "codex"
 cask "font-jetbrains-mono-nerd-font"   # iconos para starship/eza

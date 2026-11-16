@@ -1,0 +1,2 @@
+# Opcional: lo instala scripts/08-android.sh solo si se pide.
+cask "android-studio"

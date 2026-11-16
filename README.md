@@ -28,6 +28,7 @@ Todo es idempotente: se puede relanzar sin romper nada. Si un archivo real ocupa
 | `05-runtimes.sh` | Node LTS (nvm), Python 3 (pyenv), Java (sdkman) |
 | `06-macos.sh` | Preferencias de Dock y Finder |
 | `07-post-install.sh` | Restaura T3 Code y Rectangle, crea `~/.gitconfig.local`, instala plugins de Claude Code |
+| `08-android.sh` | **Opcional**: Android Studio (`Brewfile.android`). En la instalación completa pregunta (por defecto no); `./install.sh 08` lo instala directamente |
 
 ## Estructura
 
@@ -55,7 +56,7 @@ docs/              guía de herramientas
 
 **CLI**: eza, bat, fd, ripgrep, jq, gh, git-delta, lazygit, btop, tldr (tlrc), httpie.
 
-**Apps**: Rectangle, cmux, T3 Code, Zed, Android Studio, Claude Code, Codex.
+**Apps**: Rectangle, cmux, T3 Code, Zed, Claude Code, Codex. Opcional: Android Studio.
 
 👉 Qué hace cada una, atajos y aliases: [docs/herramientas.md](docs/herramientas.md).
 
