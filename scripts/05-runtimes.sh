@@ -36,7 +36,13 @@ export SDKMAN_DIR="$HOME/.sdkman"
 if [ ! -d "$SDKMAN_DIR" ]; then
   info "Instalando sdkman…"
   # rcupdate=false: el .zshrc del repo ya carga sdkman.
-  curl -s "https://get.sdkman.io?rcupdate=false" | bash >/dev/null
+  # -f: si la descarga falla, curl no pasa una página de error a bash.
+  # sdkman exige Bash 4+: se usa el de brew (macOS trae 3.2).
+  curl -fsS "https://get.sdkman.io?rcupdate=false" | "$BREW_PREFIX/bin/bash" >/dev/null || true
+fi
+if [ ! -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]; then
+  warn "sdkman no se instaló (¿red?): repite con ./install.sh 05"
+  exit 1
 fi
 source "$SDKMAN_DIR/bin/sdkman-init.sh"
 if [ -d "$SDKMAN_DIR/candidates/java/current" ]; then

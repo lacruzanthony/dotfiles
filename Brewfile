@@ -25,6 +25,7 @@ brew "tlrc"                # `tldr <cmd>`: ejemplos rápidos
 brew "httpie"              # `http` → curl legible
 
 # --- Runtimes ---
+brew "bash"                # Bash 5: sdkman lo exige (macOS trae 3.2)
 brew "nvm"                 # Node
 brew "pyenv"               # Python
 brew "openssl@3"           # deps de compilación de Python (pyenv): sin openssl@3 instalado,
