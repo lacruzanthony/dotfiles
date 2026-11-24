@@ -3,6 +3,8 @@
 export PATH="$HOME/.local/bin:$PATH"
 export EDITOR="zed --wait"
 export DOTFILES="$HOME/.dotfiles"
+export T3CODE_TELEMETRY_ENABLED=false
+export T3CODE_OTEL_SDK_DISABLED=true
 
 # --- Oh My Zsh (sin tema: el prompt es Starship) ---
 export ZSH="$HOME/.oh-my-zsh"
